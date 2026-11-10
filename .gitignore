@@ -1,11 +1,8 @@
-
 # ==============================
 # Visual Studio / VS Code
 # ==============================
 .vs/
-.vscode/*
-!.vscode/launch.json
-!.vscode/tasks.json
+.vscode/
 .idea/
 *.suo
 *.user
