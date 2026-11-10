@@ -1,0 +1,91 @@
+
+# ==============================
+# Visual Studio / VS Code
+# ==============================
+.vs/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ==============================
+# .NET / ASP.NET Core
+# ==============================
+**/bin/
+**/obj/
+**/out/
+**/publish/
+**/TestResults/
+*.dll
+*.exe
+*.pdb
+
+# .NET local configuration
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/secrets.json
+
+# ==============================
+# Flutter / Dart
+# ==============================
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/build/
+**/coverage/
+**/*.freezed.dart
+**/*.g.dart
+
+# Flutter generated files
+**/android/.gradle/
+**/android/local.properties
+**/ios/Flutter/.last_build_id
+
+# ==============================
+# Environment / Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ==============================
+# Logs / Temporary files
+# ==============================
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Database backup files
+# ==============================
+*.bak
+*.trn
+*.mdf
+*.ldf
+
+# ==============================
+# Python (if used for scripts)
+# ==============================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ==============================
+# Local IDE / OS files
+# ==============================
+desktop.ini

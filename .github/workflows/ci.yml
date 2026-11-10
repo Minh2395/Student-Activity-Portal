@@ -1,0 +1,63 @@
+name: Student Activity Portal CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend - ASP.NET Core
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore StudentActivityPortal.Api/StudentActivityPortal.Api.csproj
+
+      - name: Build backend
+        run: dotnet build StudentActivityPortal.Api/StudentActivityPortal.Api.csproj --configuration Release --no-restore
+
+  flutter:
+    name: Flutter - Android
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        working-directory: student_activity_portal
+        run: flutter pub get
+
+      - name: Analyze Flutter code
+        working-directory: student_activity_portal
+        run: flutter analyze
+
+      - name: Build Android APK
+        working-directory: student_activity_portal
+        run: flutter build apk --debug
+
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: student-activity-portal-debug-apk
+          path: student_activity_portal/build/app/outputs/flutter-apk/app-debug.apk
+          if-no-files-found: error
+          retention-days: 7

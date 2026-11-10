@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend - ASP.NET Core",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-backend",
+      "program": "${workspaceFolder}/StudentActivityPortal.Api/bin/Debug/net9.0/StudentActivityPortal.Api.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/StudentActivityPortal.Api",
+      "stopAtEntry": false,
+      "console": "internalConsole",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://0.0.0.0:5157"
+      }
+    },
+    {
+      "name": "Flutter - Android Emulator",
+      "type": "dart",
+      "request": "launch",
+      "program": "${workspaceFolder}/student_activity_portal/lib/main.dart",
+      "deviceId": "emulator-5554"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack - Flutter + Backend",
+      "configurations": [
+        "Backend - ASP.NET Core",
+        "Flutter - Android Emulator"
+      ],
+      "stopAll": true
+    }
+  ]
+}
